@@ -11,6 +11,7 @@ console.log(templateText);
 
 //テンプレートリテラルを用いて、文章の中に ${変数名} を書くことで、その位置で変数の中身を展開することができるため
 //変数に格納されている0番目の要素である'JavaScript'と3番目の要素である'Python'を表示させるためにこの記述を行った。
+//改行もできる
 
 
 //Q3　オブジェクト
@@ -42,6 +43,7 @@ let playerList = [
   },
 ];
 console.log(playerList[1].favorites[1]);
+
 
 //Q5　四則演算
 let total = playerList.reduce((sum, item) => sum + item.age, 0);
@@ -78,7 +80,9 @@ console.log(user.birthday);
 user.sayHello = function() {
   console.log('Hello！');
 };
-// メソッドを呼び出して実行
+//無名関数
+// メソッドを呼び出して実行、関数とメソッドの違い
+//メソッドはオブジェクトの中の関数のこと
 user.sayHello();
 
 //Q8　引数
@@ -110,10 +114,11 @@ function remainder(x,y) {
   let rem = x % y;
   return rem;
 };
-a = 5;
-b = 3;
+let a = 5;
+let b = 3;
 console.log(a + 'を' + b + 'で割った余りは' + remainder(a,b) + 'です');
-
+//返り値を使うメリット　値だけを実行場所に返すことができる。
+// そうすると返した値の汎用性が上がるため。
 
 //Q10 スコープ
 //この記述では、関数fooを定義してその関数の中で変数xを定義しているが、
@@ -131,8 +136,9 @@ console.log(Math.floor(Math.random() * 10));
 //Math.floor( )で小数点以下を切り捨て
 //Math.random( )で0 ~ 1未満の乱数を生成
 //Math.randomに10をかける...0 ~ 10未満の整数の乱数を生成
-//これで0... ~ 9.9999.....の間で乱数が生成され、小数点以下が切り捨てられるという処理
-
+//これで0... ~ 9.9999.....の間で乱数が生成され、小数点以下が切り捨てられて
+// ランダムに表示される処理
+//関数の()内で定義されている処理が先に行われる。
 
 //Q2　コールバック関数
 function callback(){
@@ -143,6 +149,7 @@ setTimeout(callback, 3000);
 //3秒後に表示されるように指定したかったため、setTimeout関数を用いて
 // 時間切れになると関数または指定されたコードの断片を実行するタイマーを設定した。
 //この関数は時間をミリ秒単位で指定するため、3000という記述をした。
+//コールバック関数　引数に渡される関数のこと　後で実行したいため使う。
 
 //Q3 if
 let num = 0;
@@ -154,11 +161,12 @@ if(0 < num) {
 
   console.log('num is less than 0');
 
-} else {
+} else if(num === 0) {
 
   console.log('num is 0');
 
 }
+//
 
 
 //Q4 for
@@ -174,6 +182,7 @@ console.log(numbers);
 //Q5 for × if
 let mixed = [4, '2', 5, '8', '9', 0, 1];
 
+//for文　（初期値、繰り返しを続ける条件(trueである限り続く)、いくつずつ増えるのか）
 for (let i = 0; i < mixed.length; i++) {
 
   if(typeof mixed[i] === 'string') {
